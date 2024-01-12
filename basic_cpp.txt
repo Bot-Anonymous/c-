@@ -1,0 +1,48 @@
+#include <iostream>   ---- like as in C
+using namespace std    ---this is due when we are using the built-in words
+
+cout <<"Hi";  -- standard output function
+
+
+variable 
+
+definition -----> declaration + initialisation
+
+Types of Variable:- 
+Local 
+Instance 
+Static
+
+//// Const variable
+// Scope Resolution operator
+3). Storage Class
+4). Datatypes  (macro constant)
+	Typecasting in d_types
+5). Literals
+6). Integer Promotion
+7) Function :- 
+		function overloading
+		inline function
+		lambda function
+Pointers 
+		this pointer
+Refrences
+Array :- 
+		Array Decay in C++
+String :-
+		String function
+		tokenising of string
+		substrings
+
+OOps:- 
+	Class
+	Objects
+	member data/function
+	constructors
+	destructors
+
+Structures :- 
+Union:-
+Enumerators
+Exception Handling :- 
+File Handling :- 

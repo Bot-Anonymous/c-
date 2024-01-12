@@ -1,0 +1,19 @@
+why using namespace std
+what is flushing & buffered and unbuffered
+cout << endl;  vs cout << '\n';
+cin-cout vs scanf-printf
+how to solve scanf after gets(),fgets()
+getline()
+
+
+--------------> int *p[7] != int (*p)[7]   why ?????
+
+Array of strings ---5 diff ways
+tokenising of string
+
+----------? self refrels structures???
+typedef in C++ ??
+
+
+Working of virtual function
+virtual constructors???
