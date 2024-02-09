@@ -17,3 +17,5 @@ typedef in C++ ??
 
 Working of virtual function
 virtual constructors???
+All about Using Keyword????
+Functors ????

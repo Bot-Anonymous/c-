@@ -656,6 +656,33 @@ and at run time the location pointed by pointer is prior*/
 //     return 0;
 // }
 
+
+//---------       << operator overloading
+//#include <iostream>
+//#include <string>
+//
+//using namespace std;
+//class base{
+//	string first_name;
+//	string last_name;
+//	int age;
+//	public:
+//		base(string s1,string s2,int age){
+//			this->first_name=s1;
+//			this->last_name=s2;
+//			this->age=age;
+//		}
+//		friend ostream& operator<<(ostream& out,base b1);
+//};
+//ostream& operator<<(ostream& out,base b1){
+//			out<<b1.first_name<<" "<<b1.last_name<<" Age is "<<b1.age;
+//			return out;
+//		}
+//int main(){
+//	base b1("Yogesh","kumar",18);
+//	cout<<b1;
+//	return 0;
+//}
 // --------------------- Virtual destructors------------------------------------------
 // #include <iostream>
 // using namespace std;

@@ -449,6 +449,526 @@
 //------------------- Exception Handling ------------------------
 
 
+//----------------------------- File Handling --------------------------
+//#include <iostream>
+//#include <fstream>
+//using namespace std;
+//int main(){
+//	// creting new file and insertion data using insertion operator
+//	ofstream file;
+//	file.open("./files/demo1.txt");  // if file is not then will created
+////	file<<"Hello this is Yogesh Kumar";  // insertion operator to store data
+//	string name="YOgesh Kumar";
+//	file<<name;
+//	file.close();
+//	return 0;
+//}
+
+//---
+//#include <iostream>
+//#include <fstream>
+//using namespace std;
+//
+//int main(){
+//	ofstream file;
+//	file.open("./files/demo1.txt");
+//	string line;
+//	while(true){
+//		getline(cin,line);
+//		if(line=="-1"){
+//			break;
+//		}
+//		file<<line;
+//		file<<'\n';  // for newline
+//	}
+//	file.close();
+//	return 0;
+//}
+
+//------ reading a file
+//#include <iostream>
+//#include <fstream>
+//using namespace std;
+//int main(){
+//	ifstream file;  // input stream object
+//	file.open("./files/demo1.txt");
+//	char ch;
+////	file>>ch;   // read only character
+////	cout<<ch;
+//	while(!file.eof()){   // eof -- end of file
+////	file>>ch;
+////	cout<<ch;   // it will not read space or any special character
+////	to handle this use get function
+//	ch=file.get();
+//	cout<<ch;
+//}
+//	file.close();
+//	return 0;
+//}
+//----------- both simultaneously
+//#include <iostream>
+//#include <fstream>
+//using namespace std;
+//int main(){
+//	fstream file;
+//	file.open("./files/demo1.txt",ios::app | ios::in);
+//	while(true){
+//		string line;
+//		cin>>line;
+//		if (line=="-1"){
+//			break;
+//		}
+//		file<<line;
+//		file<<'\n';
+//	}
+//	while(!file.eof()){
+//		cout<<file.get();
+//	}
+//	file.close();
+//	return 0;
+//}
+
+
+//tellg() -- input stream  and tellp() -- output stream
+
+//#include <iostream>
+//#include <fstream>
+//using namespace std;
+//int main(){
+////	ifstream file1;
+////	file1.open("./files/demo2.txt");
+////	while(!file1.eof()){
+////		char ch;
+////		cout<<file1.tellg()<<endl;
+////		ch=file1.get();
+////	}
+////	file1.close();
+////--- tellp()  function
+//	fstream file;
+//	file.open("./files/demo2.txt",ios::app);
+//	cout<<file.tellp()<<endl;
+//	file<<"Hello this is";
+//	cout<<file.tellp();
+//	file.close();
+//	return 0;
+//}
+
+//------------------- seekg() and seekp()
+
+//#include <iostream>
+//#include <fstream>
+//using namespace std;
+//int main(){
+//	ifstream file;
+//	file.open("./files/demo2.txt");
+//	cout<<file.tellg()<<endl;
+//	char ch=file.get();
+//	cout<<file.tellg()<<endl;
+//	file.seekg(0,ios::beg);   // come to initial pos
+//	cout<<file.tellg()<<endl;   
+//	char ch1=file.get();
+//	cout<<ch1;
+//	file.close();
+//	return 0;
+//}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>> templates <<<<<<<<<<<<<<<<<<<<<<<
+//#include <iostream>
+//using namespace std;
+//template <typename T>
+//T max1(T x,T y){
+//	return (x>y)?x:y;
+//}
+//int main(){
+//	cout<< max1<int>(5,7);
+//	cout<< max1<char>('z','x');   // this is how templates works
+//	return 0;
+//}
+//------------- application
+//#include <iostream>
+//using namespace std;
+//template <typename T>
+//void bubble_Sort(T* array,int n){
+//	int i,j;
+//	for(i=0;i<n;i++){
+//		for(j=i;j<n;j++){
+//			if(array[i]>array[j]){
+//				T temp=array[i];
+//				array[i]=array[j];
+//				array[j]=temp;
+//			}
+//		}
+//	}
+//}
+//template<typename T>
+//void print(T array[],int n){
+//	int i;
+//	for(i=0;i<n;i++){
+//		cout<<array[i]<<endl;
+//	}
+//}
+//int main(){
+//	int n=10;
+//	int array1[n]={3,7,1,9,4,5,0,11,22,80};
+//	char array2[n]={'s','p','q','a','y','d','m','h','o','c'};
+//	bubble_Sort<int>(array1,n);
+//	bubble_Sort<char>(array2,n);  // working well
+//	print<int>(array1,n);
+//	print<char>(array2,n);
+//	return 0;
+//}
+//
+//
+//
+//
+//--------------- Template Class
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//template <typename T>
+//class demo{
+//	T data;
+//	public:
+//		demo(T value){
+//			this->data=value;
+//		}
+//		T get(){
+//			return this->data;
+//		}
+//};
+//int main(){
+//	demo<int> d1(5);
+//	demo<float> d2(6.009);
+//	demo<char> d3('l');
+//	demo<string> d4("Yogesh Kumar");
+//	cout<<d1.get()<<endl;
+//	cout<<d2.get()<<endl;
+//	cout<<d3.get()<<endl;
+//	cout<<d4.get()<<endl;
+//	return 0;
+//}
+
+
+//-------- Array of nay datatype
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//template <typename T>
+//class Array{
+//	T* data;
+//	int size;
+//	public:
+//		Array(T arr[],int s);
+//		void print();
+//};
+//template<typename T>Array<T>::Array(T arr[],int s){
+//	data=new T[s];
+//	size=s;
+//	int i;
+//	for(i=0;i<s;i++){
+//		data[i]=arr[i];
+//	}
+//}
+//template<typename T>void Array<T>::print(){
+//	int i;
+//	for(i=0;i<size;i++){
+//		cout<<data[i]<<" ";
+//	}
+//}
+//int main(){
+//	int arr1[]={4,6,7,2,4};
+//	char arr2[]={'a','b','z','x'};
+//	Array<int> array1(arr1,5);
+//	Array<char> array2(arr2,4);
+//	array1.print();
+//	cout<<endl;
+//	array2.print();   // wprking properly
+//	return 0;
+//}
+
+//--------->>>>>>>>more than one dataype as parameter
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//template<typename T,typename U =char>   // can be assign default data-type
+//class demo{
+//	T x;
+//	U y;
+//	public:
+//		demo(T a,U b){
+//			x=a;
+//			y=b;
+//		}
+//		void get(){
+//			cout<<"First Value is : "<<this->x<<endl;
+//			cout<<"Second Value is : "<<this->y<<endl;
+//		}
+//};
+//int main(){
+//	demo<int,char> d1(5,'x');
+//	d1.get();
+//	return 0;
+//}
+
+//------------------- templates woth static variable
+//#include <iostream>
+//using namespace std;
+//template <typename T>
+//T demo(T value){
+//	static int i=0;
+//	i++;
+//	return i;
+//}
+//int main(){
+//	cout<<demo<int>(1)<<endl;  // 1
+//	cout<<demo<int>(1)<<endl;  // 2 as we know
+//	cout<<demo<float>(1.1);    // 1 why??
+//	return 0;
+//}
+
+/*  Explanation :- For different datatypes there is separate copy of static variable
+for int static i different for static float 
+*/
+
+
+// -- Template Argument Deducting
+// implicit deducting of datatypes
+//#include <iostream>
+//using namespace std;
+//template <typename T>
+//T print(T a){
+//	return a;
+//}
+//int main(){
+//	cout<< print(5); 
+//	cout<< print("H");   // we not explicit tell about data type of arguments
+//	return 0;
+//}
+
+
+//--------------------------- Templates Specialization ------
+//// used for performing a certain task for defferent data-type
+//#include <iostream>
+//using namespace std;
+//template <typename t>
+//void print(t var){
+//	cout<<"This is Main Template Function"<<endl;
+//}
+////-- template specialization
+//template<>
+//void print(int a){     // both function name should be same
+//	cout<<"Int DataType is Passed as Argument"<<endl;
+//}
+//int main(){
+//	print<char>('a');
+//	print<int>(5);
+//	return 0;
+//}
+
+// same for class
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>> Standard Template Library <<<<<<<<<<<<<<<<<<<<<<<<
+// algorithm given in STL 
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int main(){
+//	int arr[]={1,7,90,3,5,2,180};
+//	sort(begin(arr),end(arr));
+//	for(int i:arr){
+//		cout<<i<<" ";
+//	}
+//	return 0;
+//}
+
+//----------------------- Array STL ----------------
+//#include <iostream>
+//#include <array>   // this header file to  use function of array class
+//using namespace std;
+//int main(){
+//	array<int,8> arr={4,5,6,7,8,9,1,2};
+//	cout<<arr.at(0);   // use to access the element of array
+//	cout<<get<1>(arr);   // same like above
+//	cout<<arr[2]; // normal array method
+//	cout<<arr.front();       // return the first element refrence
+//	int& lastElement=arr.back();       // return the last element  refrence
+//	cout<<endl;
+////	--
+//	cout<<arr.size();   // return no. of element in aray
+//	cout<<arr.max_size();   // return max size of array
+//	return 0;
+//}
+
+
+
+//----------------- vector -----------------
+// they are  dynamic array
+//
+//#include <iostream>
+//#include <vector>
+//using namespace std;
+//int main(){
+//	vector<int> vec={1,2,3,4,5,6};
+////	for(int i:vec){
+////		cout<<i<<" ";
+////	}
+////-- to print the vector
+//	auto i=vec.begin();
+//	while(i!=vec.end()){
+//		cout<<*i<<" ";
+//		i++;
+//	}
+////	vec.push_back(10); // insert an element at th enf of vector
+////	cout<<*(vec.begin());   // return  the iterator of first element
+////	cout<<*(vec.end());   // return  the iterator of last element
+//	return 0;
+//}
+//----------- vector with iterators
+//#include <iostream>
+//#include <vector>
+//using namespace std;
+//int main(){
+//	vector<int> vec={4,11,6,7,8,9};
+//	auto i=vec.begin();  // i is iterator object
+//	i++;
+//	cout<<*i<<endl;
+//	return 0;
+//}
+//------ methods of vector
+// 1). size()
+// 2). max_size()
+// 3). capacity()
+// 4). resize(int)
+// 5). empty()  --> 
+// 6). shrink_to_fit()
+// 7). clear()
+// 8). erase()
+// 9). push_back()
+// 10). pop_back()   // not return the popped element
+// 11). ()
+//#include <iostream>
+//#include <vector>
+//using namespace std;
+//int main(){
+//	vector<int> vec={7,8,9,10,55,77};
+//	vector<int> vec1={};
+//	vec.resize(10);
+//	cout<<vec.size()<<endl;
+//	cout<<vec.max_size()<<endl;
+//	vec.shrink_to_fit();
+//	cout<<vec.max_size()<<endl;
+//	cout<<vec.capacity()<<endl;
+////	int a=vec.pop_back();  // error
+//	return 0;
+//}
+
+
+//>>>>>>>>>>>>>>>>>>>>>> Namespace <<<<<<<<<<<<<<<<<<<
+//#include <iostream>
+//namespace space1{
+//	void fun(){
+//		std::cout<<"I am a Fun function of space 1";
+//	}
+//}
+//namespace space2{
+//	void fun(){
+//		std::cout<<"I am fun function of space 2";
+//	}
+//}
+//using namespace space1;
+//int main(){
+//	fun();  // or
+//	space1::fun();
+//	return 0;
+//}
+
+//#include<iostream>
+//using namespace std;
+//namespace first{
+//	int value=10;	
+//};
+//namespace second{
+//	double value=20.000059;
+//}
+//int main(){
+//	cout<<first::value<<endl;
+//	printf("%lf",second::value);
+//	return 0;
+//}
+////-------------------------- unnamed namespace ----------------
+//#include <iostream>
+//using namespace std;
+//namespace {
+//	int x=10;
+//}
+//
+//int main(){
+//	int x=20;
+////	cout<<::x;       // namespace variable will print
+////	cout<<x;      // main function variable will print (override the namespace variabele)
+//	
+//	return 0;
+//}
+////	  if not define then namespace variable will print
+
+//#include <iostream>
+//using namespace std;
+//namespace one{
+//	int a=23;
+//	namespace two{
+//		int value=3;
+//	}
+//}
+//namespace second{
+//	inline namespace third{
+//	int value=90;
+//	}
+//}
+//int main(){
+//	cout<<one::two::value<<endl;
+////	cout<<one::value<<endl;   // show error  to handle this use inline
+//	cout<<second::value;
+//	return 0;
+//}
+
+//------------ or 2nd method
+//#include <iostream>
+//using namespace std;
+//namespace ns1{
+//	namespace ns2{
+//		namespace ns3{
+//			int var=60;
+//		}
+//		using namespace ns3;
+//	}
+//	using namespace ns2;
+//}
+//int main(){
+//	cout<<ns1::var<<endl;
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
